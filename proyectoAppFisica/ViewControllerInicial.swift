@@ -6,6 +6,7 @@ import UIKit
 
 class ViewControllerInicial: UIViewController {
 
+    // MARK: - Outlets
     @IBOutlet weak var tfPosicionInicial: UITextField!
     @IBOutlet weak var slPosicion: UISlider!
     @IBOutlet weak var tfVelocidad: UITextField!
@@ -17,6 +18,12 @@ class ViewControllerInicial: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        tfPosicionInicial.isEnabled = false
+        tfPosicionInicial.text = String(slPosicion.value)
+        
+        // Para esconder el teclado al tocar el fondo
+        let tap = UITapGestureRecognizer(target: self, action: #selector(ViewControllerInicial.quitaTeclado))
+        view.addGestureRecognizer(tap)
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,7 +31,12 @@ class ViewControllerInicial: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    // MARK: - Actions
+    @IBAction func asignarPosInicial(_ sender: UISlider) {
+        slPosicion.value = round(slPosicion.value)
+        tfPosicionInicial.text = String(slPosicion.value)
+    }
+    
 
     // MARK: - Navigation
 
@@ -32,6 +44,12 @@ class ViewControllerInicial: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "graficar" {
+            let desteny = segue.destination as! ViewControllerGraficas
+            desteny.posInicial  = Double(slPosicion.value)
+            desteny.velocidad = Double(tfVelocidad.text!)!
+            desteny.aceleracion = Double(tfAceleracion.text!)!
+        }
     }
     
     @IBAction func unwindGraficas(_ sender : UIStoryboardSegue) {
@@ -49,6 +67,11 @@ class ViewControllerInicial: UIViewController {
     
     @IBAction func unwindDatosRecientesSeleccionar(_ sender : UIStoryboardSegue) {
         
+    }
+    
+    //MARK: -- Funciones
+    func quitaTeclado() {
+        view.endEditing(true)
     }
 
 }
