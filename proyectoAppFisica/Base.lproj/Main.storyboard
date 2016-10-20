@@ -155,33 +155,64 @@
                                     <segue destination="Wht-4j-b1M" kind="unwind" unwindAction="unwindConfiguracionGuardar:" id="5CP-vw-GPd"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zkT-2g-V5r">
-                                <frame key="frameInset" minX="137" minY="135" width="101" height="101"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RXW-3x-Glj">
+                                <frame key="frameInset" minX="223" minY="265" width="101" height="101"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Edz-ha-a6y">
-                                <frame key="frameInset" minX="137" minY="264" width="101" height="101"/>
+                                <state key="normal" backgroundImage="pinguino"/>
+                                <connections>
+                                    <action selector="coloreaPinguino:" destination="Cf9-rN-T1E" eventType="touchUpInside" id="dAS-0L-BYv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2h-VZ-KuC">
+                                <frame key="frameInset" minX="239" minY="121" width="101" height="101"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nmd-AA-dGq">
-                                <frame key="frameInset" minX="137" minY="385" width="101" height="101"/>
+                                <state key="normal" backgroundImage="Carrito"/>
+                                <connections>
+                                    <action selector="coloreaCarro:" destination="Cf9-rN-T1E" eventType="touchUpInside" id="EnH-7Y-qCW"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GWN-oW-gN6">
+                                <frame key="frameInset" minX="9" minY="107" width="206" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zNq-GA-RcP">
+                                <frame key="frameInset" minX="9" minY="251" width="206" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZjM-4j-Vkz">
+                                <frame key="frameInset" minX="9" minY="393" width="206" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4eU-aj-L1R">
+                                <frame key="frameInset" minX="137" minY="407" width="101" height="101"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="person"/>
+                                <connections>
+                                    <action selector="coloreaPersona:" destination="Cf9-rN-T1E" eventType="touchUpInside" id="A6I-Vb-Bk5"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
+                        <outlet property="btCarrito" destination="Y2h-VZ-KuC" id="xOV-WX-Erx"/>
                         <outlet property="btGuardar" destination="Og9-xR-xM0" id="7Zm-Jo-IDy"/>
+                        <outlet property="btPersona" destination="4eU-aj-L1R" id="ltd-0o-twz"/>
+                        <outlet property="btPinguino" destination="RXW-3x-Glj" id="yci-Iv-Nal"/>
                         <outlet property="btRegresar" destination="g8s-vL-PY2" id="tsv-af-fFk"/>
-                        <outlet property="imFoto1" destination="zkT-2g-V5r" id="cIM-o3-soM"/>
-                        <outlet property="imFoto2" destination="Edz-ha-a6y" id="6Hx-ir-5YZ"/>
-                        <outlet property="imFoto3" destination="nmd-AA-dGq" id="7ez-HN-voh"/>
+                        <outlet property="imFondoCarrito" destination="GWN-oW-gN6" id="vYY-S3-Awi"/>
+                        <outlet property="imFondoPersona" destination="ZjM-4j-Vkz" id="zg4-rw-sHp"/>
+                        <outlet property="imFondoPinguino" destination="zNq-GA-RcP" id="RqL-Z2-aj7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9EQ-pG-NaJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Wht-4j-b1M" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="89" y="928"/>
+            <point key="canvasLocation" x="88.799999999999997" y="927.88605697151434"/>
         </scene>
         <!--View Controller Datos-->
         <scene sceneID="92K-jL-dX5">
@@ -293,33 +324,37 @@
                                 <frame key="frameInset" minX="67" minY="299" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DjI-Xb-jde">
-                                <frame key="frameInset" minX="163" minY="469" width="49" height="36"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Carrito" translatesAutoresizingMaskIntoConstraints="NO" id="DjI-Xb-jde">
+                                <frame key="frameInset" minX="163" minY="463" width="49" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="pi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aI-ta-s3V">
-                                <frame key="frameInset" minX="29" minY="611" width="80" height="21"/>
+                                <frame key="frameInset" minX="29" minY="611" width="117" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="v" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZu-oR-GPa">
-                                <frame key="frameInset" minX="155" minY="612" width="75" height="21"/>
+                                <frame key="frameInset" minX="155" minY="612" width="87" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ay2-br-35q">
-                                <frame key="frameInset" minX="250" minY="612" width="76" height="21"/>
+                                <frame key="frameInset" minX="250" minY="612" width="95" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="JZV-br-I98">
+                                <frame key="frameInset" minX="16" minY="471" width="343" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Soy-j4-LBi">
-                                <frame key="frameInset" minX="140" minY="523" width="94" height="29"/>
+                                <frame key="frameInset" minX="140" minY="521" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </stepper>
                         </subviews>
@@ -341,4 +376,10 @@
             <point key="canvasLocation" x="932" y="139.880059970015"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Carrito" width="960" height="712"/>
+        <image name="Image" width="960" height="480"/>
+        <image name="person" width="688" height="720"/>
+        <image name="pinguino" width="466" height="720"/>
+    </resources>
 </document>

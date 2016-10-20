@@ -11,10 +11,23 @@ class ViewControllerConfiguracion: UIViewController {
     @IBOutlet weak var imFoto2: UIImageView!
     @IBOutlet weak var imFoto3: UIImageView!
     @IBOutlet weak var btGuardar: UIButton!
+    @IBOutlet weak var imFondoCarrito: UIImageView!
+    @IBOutlet weak var imFondoPinguino: UIImageView!
+    @IBOutlet weak var imFondoPersona: UIImageView!
+    @IBOutlet weak var btCarrito: UIButton!
+    @IBOutlet weak var btPinguino: UIButton!
+    @IBOutlet weak var btPersona: UIButton!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        imFondoCarrito.isHidden = false
+        imFondoPersona.isHidden = true
+        imFondoPinguino.isHidden = true
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,5 +45,32 @@ class ViewControllerConfiguracion: UIViewController {
         // Pass the selected object to the new view controller.
     }
 
+    // MARK: - Action
+    
+    @IBAction func coloreaCarro(_ sender: UIButton) {
+/*
+        _ = Timer.scheduledTimer(timeInterval: 0.0, target: self, selector: Selector("highlightButtonPinguino(button: sender)"), userInfo: nil, repeats: true)
+ */
 
+    }
+
+    @IBAction func coloreaPinguino(_ sender: UIButton) {
+        btCarrito.isHighlighted = false
+        btPinguino.isHighlighted = true
+        btPersona.isHighlighted = false
+    }
+    
+    @IBAction func coloreaPersona(_ sender: UIButton) {
+        btCarrito.isHighlighted = false
+        btPinguino.isHighlighted = false
+        btPersona.isHighlighted = true
+    }
+    
+    func highlightButtonPinguino(button: UIButton) {
+        btCarrito.isHighlighted = true
+        btPinguino.isHighlighted = false
+        btPersona.isHighlighted = false    }
+    
+    
+    
 }
