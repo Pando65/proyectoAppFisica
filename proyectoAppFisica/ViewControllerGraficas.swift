@@ -13,20 +13,31 @@ class ViewControllerGraficas: UIViewController {
     @IBOutlet weak var lbVelocidad: UILabel!
     @IBOutlet weak var lbAceleracion: UILabel!
     @IBOutlet weak var stCambiaUbicacion: UIStepper!
+    @IBOutlet weak var imObjetoMovimiento: UIImageView!
+    @IBOutlet weak var imPlataformaMovimiento: UIImageView!
+    
     
     // MARK: - Atributos de la clase
     var posInicial = 0.0
     var velocidad = 0.0
     var aceleracion = 0.0
+    var tiempo = 0
+    let screenSize: CGRect = UIScreen.main.bounds
+    var screenWidth: CGFloat = 0.0
+    var alignmentIzquierda: CGFloat = 0.0
+    var longitudPlataforma: CGFloat = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        lbTiempo.text = "0.0 s"
+        lbTiempo.text = "\(tiempo) s"
         lbPosicionInicial.text = "\(String(posInicial)) m"
         lbVelocidad.text = "\(String(velocidad)) m/s"
         lbAceleracion.text = "\(String(posInicial)) m/s2"
+        
+        setImagesPositionAndSize()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,6 +55,23 @@ class ViewControllerGraficas: UIViewController {
         // Pass the selected object to the new view controller.
     }
 
+    // MARK: - Actions
+    @IBAction func modificaTiempo(_ sender: UIStepper) {
+        //Pendiente cambiar posicion segun el stepper
+    }
+    
 
+    // MAR: - Functions
+    func setImagesPositionAndSize() {
+        screenWidth = screenSize.width
+        
+        alignmentIzquierda = screenWidth * 0.2
+        longitudPlataforma = screenWidth * 0.6
+        
+        imPlataformaMovimiento.frame = CGRect(x: alignmentIzquierda, y: imPlataformaMovimiento.frame.origin.y, width: longitudPlataforma, height: imPlataformaMovimiento.frame.height)
+        
+        let posRelativa = ((CGFloat(posInicial) + 20.0) / 40.0) * longitudPlataforma
+        imObjetoMovimiento.frame.origin.x = alignmentIzquierda + posRelativa - (imObjetoMovimiento.frame.width * 0.5)
+    }
 
 }
