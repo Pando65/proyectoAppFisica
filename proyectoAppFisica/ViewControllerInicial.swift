@@ -42,8 +42,7 @@ class ViewControllerInicial: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        // TODO - validar que no esten los campos vacios
         if segue.identifier == "graficar" {
             let desteny = segue.destination as! ViewControllerGraficas
             desteny.posInicial  = Double(slPosicion.value)

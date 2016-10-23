@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0096B6731DBC7606001E78DF /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0096B66E1DBC75FA001E78DF /* Charts.framework */; };
+		0096B6741DBC7606001E78DF /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0096B66E1DBC75FA001E78DF /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0096B67B1DBC76C7001E78DF /* ViewControllerGraficaPosicion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0096B67A1DBC76C7001E78DF /* ViewControllerGraficaPosicion.swift */; };
 		3F63A00C1DB6EC2E00E9F19A /* ViewControllerInicial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F63A00B1DB6EC2E00E9F19A /* ViewControllerInicial.swift */; };
 		3F63A00E1DB6EC5200E9F19A /* ViewControllerGraficas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F63A00D1DB6EC5200E9F19A /* ViewControllerGraficas.swift */; };
 		3F63A0101DB6EC6800E9F19A /* ViewControllerConfiguracion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F63A00F1DB6EC6800E9F19A /* ViewControllerConfiguracion.swift */; };
@@ -17,7 +20,54 @@
 		3F9E88691DB69C16009899C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F9E88671DB69C16009899C3 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		0096B66D1DBC75FA001E78DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0096B6671DBC75FA001E78DF /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06165F241D8110E600722320;
+			remoteInfo = Charts;
+		};
+		0096B66F1DBC75FA001E78DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0096B6671DBC75FA001E78DF /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06B120D51D811E6200D14B02;
+			remoteInfo = ChartsRealm;
+		};
+		0096B6711DBC75FA001E78DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0096B6671DBC75FA001E78DF /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06165F2E1D8110E600722320;
+			remoteInfo = ChartsTests;
+		};
+		0096B6751DBC7606001E78DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0096B6671DBC75FA001E78DF /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 06165F231D8110E600722320;
+			remoteInfo = Charts;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0096B6651DBC7578001E78DF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0096B6741DBC7606001E78DF /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0096B6671DBC75FA001E78DF /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
+		0096B67A1DBC76C7001E78DF /* ViewControllerGraficaPosicion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerGraficaPosicion.swift; sourceTree = "<group>"; };
 		3F63A00B1DB6EC2E00E9F19A /* ViewControllerInicial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerInicial.swift; sourceTree = "<group>"; };
 		3F63A00D1DB6EC5200E9F19A /* ViewControllerGraficas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerGraficas.swift; sourceTree = "<group>"; };
 		3F63A00F1DB6EC6800E9F19A /* ViewControllerConfiguracion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerConfiguracion.swift; sourceTree = "<group>"; };
@@ -35,12 +85,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0096B6731DBC7606001E78DF /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0096B6681DBC75FA001E78DF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0096B66E1DBC75FA001E78DF /* Charts.framework */,
+				0096B6701DBC75FA001E78DF /* ChartsRealm.framework */,
+				0096B6721DBC75FA001E78DF /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		3F9E88521DB69C15009899C3 = {
 			isa = PBXGroup;
 			children = (
@@ -60,8 +121,10 @@
 		3F9E885D1DB69C16009899C3 /* proyectoAppFisica */ = {
 			isa = PBXGroup;
 			children = (
+				0096B6671DBC75FA001E78DF /* Charts.xcodeproj */,
 				3F9E885E1DB69C16009899C3 /* AppDelegate.swift */,
 				3F9E88621DB69C16009899C3 /* Main.storyboard */,
+				0096B67A1DBC76C7001E78DF /* ViewControllerGraficaPosicion.swift */,
 				3F63A00D1DB6EC5200E9F19A /* ViewControllerGraficas.swift */,
 				3F63A00F1DB6EC6800E9F19A /* ViewControllerConfiguracion.swift */,
 				3F63A0111DB6ECBE00E9F19A /* ViewControllerDatos.swift */,
@@ -83,10 +146,12 @@
 				3F9E88571DB69C15009899C3 /* Sources */,
 				3F9E88581DB69C15009899C3 /* Frameworks */,
 				3F9E88591DB69C15009899C3 /* Resources */,
+				0096B6651DBC7578001E78DF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0096B6761DBC7606001E78DF /* PBXTargetDependency */,
 			);
 			name = proyectoAppFisica;
 			productName = proyectoAppFisica;
@@ -120,12 +185,42 @@
 			mainGroup = 3F9E88521DB69C15009899C3;
 			productRefGroup = 3F9E885C1DB69C16009899C3 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 0096B6681DBC75FA001E78DF /* Products */;
+					ProjectRef = 0096B6671DBC75FA001E78DF /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				3F9E885A1DB69C15009899C3 /* proyectoAppFisica */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		0096B66E1DBC75FA001E78DF /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 0096B66D1DBC75FA001E78DF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0096B6701DBC75FA001E78DF /* ChartsRealm.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ChartsRealm.framework;
+			remoteRef = 0096B66F1DBC75FA001E78DF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0096B6721DBC75FA001E78DF /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = 0096B6711DBC75FA001E78DF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3F9E88591DB69C15009899C3 /* Resources */ = {
@@ -149,11 +244,20 @@
 				3F63A00E1DB6EC5200E9F19A /* ViewControllerGraficas.swift in Sources */,
 				3F63A0101DB6EC6800E9F19A /* ViewControllerConfiguracion.swift in Sources */,
 				3F63A0121DB6ECBE00E9F19A /* ViewControllerDatos.swift in Sources */,
+				0096B67B1DBC76C7001E78DF /* ViewControllerGraficaPosicion.swift in Sources */,
 				3F9E885F1DB69C16009899C3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0096B6761DBC7606001E78DF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Charts;
+			targetProxy = 0096B6751DBC7606001E78DF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3F9E88621DB69C16009899C3 /* Main.storyboard */ = {
@@ -269,6 +373,7 @@
 		3F9E886E1DB69C16009899C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = proyectoAppFisica/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -281,6 +386,7 @@
 		3F9E886F1DB69C16009899C3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = proyectoAppFisica/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
