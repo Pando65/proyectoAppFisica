@@ -26,6 +26,7 @@ class ViewControllerGraficas: UIViewController {
     var screenWidth: CGFloat = 0.0
     var alignmentIzquierda: CGFloat = 0.0
     var longitudPlataforma: CGFloat = 0.0
+    var imagen : UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +38,8 @@ class ViewControllerGraficas: UIViewController {
         lbAceleracion.text = "\(String(posInicial)) m/s2"
         
         setImagesPositionAndSize()
+        
+        imObjetoMovimiento.image = imagen
         
     }
 

@@ -18,16 +18,13 @@ class ViewControllerConfiguracion: UIViewController {
     @IBOutlet weak var btPinguino: UIButton!
     @IBOutlet weak var btPersona: UIButton!
     
-    
+    var imagen : UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        imFondoCarrito.isHidden = false
-        imFondoPersona.isHidden = true
-        imFondoPinguino.isHidden = true
-
+        seleccionImagen1()
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,36 +38,69 @@ class ViewControllerConfiguracion: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if sender as! UIButton == btGuardar {
+            let viewIni = segue.destination as! ViewControllerInicial
+            if btCarrito.isSelected {
+                viewIni.imagenSeleccionada = btCarrito.currentBackgroundImage
+            }
+            if btPinguino.isSelected {
+                viewIni.imagenSeleccionada = btPinguino.currentBackgroundImage
+            }
+            if btPersona.isSelected {
+                viewIni.imagenSeleccionada = btPersona.currentBackgroundImage
+            }
+            if sender as! UIButton == btRegresar  {
+            }
+        }
     }
 
     // MARK: - Action
     
     @IBAction func coloreaCarro(_ sender: UIButton) {
-/*
-        _ = Timer.scheduledTimer(timeInterval: 0.0, target: self, selector: Selector("highlightButtonPinguino(button: sender)"), userInfo: nil, repeats: true)
- */
-
+        seleccionImagen1()
+        
     }
 
     @IBAction func coloreaPinguino(_ sender: UIButton) {
-        btCarrito.isHighlighted = false
-        btPinguino.isHighlighted = true
-        btPersona.isHighlighted = false
+        seleccionImagen2()
     }
     
     @IBAction func coloreaPersona(_ sender: UIButton) {
-        btCarrito.isHighlighted = false
-        btPinguino.isHighlighted = false
-        btPersona.isHighlighted = true
+        seleccionImagen3()
     }
     
-    func highlightButtonPinguino(button: UIButton) {
-        btCarrito.isHighlighted = true
-        btPinguino.isHighlighted = false
-        btPersona.isHighlighted = false    }
+    func seleccionImagen1(){
+        imFondoCarrito.isHidden = true
+        imFondoPinguino.isHidden = false
+        imFondoPersona.isHidden = false
+        
+        btCarrito.isSelected = true
+        btPinguino.isSelected = false
+        btPersona.isSelected = false
+    }
+    
+    func seleccionImagen2(){
+        imFondoCarrito.isHidden = false
+        imFondoPinguino.isHidden = true
+        imFondoPersona.isHidden = false
+        
+        btCarrito.isSelected = false
+        btPinguino.isSelected = true
+        btPersona.isSelected = false
+    }
+    
+    func seleccionImagen3(){
+        imFondoCarrito.isHidden = false
+        imFondoPinguino.isHidden = false
+        imFondoPersona.isHidden = true
+        
+        btCarrito.isSelected = false
+        btPinguino.isSelected = false
+        btPersona.isSelected = true
+    }
     
     
+    
+
     
 }

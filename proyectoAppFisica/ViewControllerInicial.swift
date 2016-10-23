@@ -13,6 +13,9 @@ class ViewControllerInicial: UIViewController {
     @IBOutlet weak var tfAceleracion: UITextField!
     @IBOutlet weak var btConfiguracion: UIButton!
     @IBOutlet weak var btDatosRecientes: UIButton!
+    @IBOutlet weak var imSeleccionada: UIImageView!
+    
+    var imagenSeleccionada : UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +23,8 @@ class ViewControllerInicial: UIViewController {
         // Do any additional setup after loading the view.
         tfPosicionInicial.isEnabled = false
         tfPosicionInicial.text = String(slPosicion.value)
+        
+        imSeleccionada.image = UIImage(named: "Carrito")
         
         // Para esconder el teclado al tocar el fondo
         let tap = UITapGestureRecognizer(target: self, action: #selector(ViewControllerInicial.quitaTeclado))
@@ -48,6 +53,7 @@ class ViewControllerInicial: UIViewController {
             desteny.posInicial  = Double(slPosicion.value)
             desteny.velocidad = Double(tfVelocidad.text!)!
             desteny.aceleracion = Double(tfAceleracion.text!)!
+            desteny.imagen = imSeleccionada.image
         }
     }
     
@@ -58,6 +64,7 @@ class ViewControllerInicial: UIViewController {
     }
     
     @IBAction func unwindConfiguracionGuardar(_ sender : UIStoryboardSegue) {
+        imSeleccionada.image = imagenSeleccionada
     }
     
     @IBAction func unwindDatosRecientesRegresar(_ sender : UIStoryboardSegue) {
