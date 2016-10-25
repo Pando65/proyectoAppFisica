@@ -15,6 +15,8 @@ class ViewControllerGraficas: UIViewController {
     @IBOutlet weak var stCambiaUbicacion: UIStepper!
     @IBOutlet weak var imObjetoMovimiento: UIImageView!
     @IBOutlet weak var imPlataformaMovimiento: UIImageView!
+    @IBOutlet weak var imLeftWall: UIImageView!
+    @IBOutlet weak var imRightWall: UIImageView!
     
     
     // MARK: - Atributos de la clase
@@ -90,7 +92,11 @@ class ViewControllerGraficas: UIViewController {
         alignmentIzquierda = screenWidth * 0.2
         longitudPlataforma = screenWidth * 0.6
         
+        imLeftWall.frame.origin.x = alignmentIzquierda-imLeftWall.frame.width
+        
         imPlataformaMovimiento.frame = CGRect(x: alignmentIzquierda, y: imPlataformaMovimiento.frame.origin.y, width: longitudPlataforma, height: imPlataformaMovimiento.frame.height)
+        
+        imRightWall.frame.origin.x = imPlataformaMovimiento.frame.origin.x + longitudPlataforma
         
         let posRelativa = ((CGFloat(posInicial) + 20.0) / 40.0) * longitudPlataforma
         imObjetoMovimiento.frame.origin.x = alignmentIzquierda + posRelativa - (imObjetoMovimiento.frame.width * 0.5)

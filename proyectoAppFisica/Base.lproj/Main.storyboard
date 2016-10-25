@@ -375,14 +375,24 @@
                                     <segue destination="YVI-9i-E9m" kind="embed" id="NY9-XB-Qm0"/>
                                 </connections>
                             </containerView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wall" translatesAutoresizingMaskIntoConstraints="NO" id="q3D-1I-dZM">
+                                <frame key="frameInset" minX="8" minY="450" width="33" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wall" translatesAutoresizingMaskIntoConstraints="NO" id="XbN-61-sh3">
+                                <frame key="frameInset" minX="332" minY="450" width="33" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.23299341779999999" green="0.60294406190000005" blue="0.62569535340000004" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="btRegresar" destination="hbf-4O-Egp" id="kZw-ls-8bH"/>
+                        <outlet property="imLeftWall" destination="q3D-1I-dZM" id="u5k-ct-oPf"/>
                         <outlet property="imObjetoMovimiento" destination="DjI-Xb-jde" id="kAP-Qe-NCw"/>
                         <outlet property="imPlataformaMovimiento" destination="JZV-br-I98" id="rEj-rp-8RU"/>
+                        <outlet property="imRightWall" destination="XbN-61-sh3" id="5Lh-Kg-ENI"/>
                         <outlet property="lbAceleracion" destination="ay2-br-35q" id="Eie-pN-Lxe"/>
                         <outlet property="lbPosicionInicial" destination="6aI-ta-s3V" id="Vcl-c9-lyP"/>
                         <outlet property="lbTiempo" destination="eu4-d8-7Jq" id="jze-HL-Byf"/>
@@ -424,5 +434,6 @@
         <image name="fondo" width="750" height="1334"/>
         <image name="perrito" width="647" height="572"/>
         <image name="persona" width="219" height="377"/>
+        <image name="wall" width="960" height="480"/>
     </resources>
 </document>

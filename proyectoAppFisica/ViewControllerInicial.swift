@@ -47,7 +47,7 @@ class ViewControllerInicial: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if Double(tfVelocidad.text!) == nil || Double(tfAceleracion.text!) == nil {
+        if (Double(tfVelocidad.text!) == nil || Double(tfAceleracion.text!) == nil) && identifier == "graficar" {
             let alerta = UIAlertController(title: "Error en los datos",
                                            message: "Todos los campos deben tener valor numerico",
                                            preferredStyle: .alert)
