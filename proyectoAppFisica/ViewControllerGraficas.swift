@@ -19,7 +19,7 @@ class ViewControllerGraficas: UIViewController {
     
     // MARK: - Atributos de la clase
     var posInicial = 0.0
-    var velocidad = 0.0
+    var velocidadInicial = 0.0
     var aceleracion = 0.0
     var tiempo = 0
     let screenSize: CGRect = UIScreen.main.bounds
@@ -34,8 +34,8 @@ class ViewControllerGraficas: UIViewController {
         // Do any additional setup after loading the view.
         lbTiempo.text = "\(tiempo) s"
         lbPosicionInicial.text = "\(String(posInicial)) m"
-        lbVelocidad.text = "\(String(velocidad)) m/s"
-        lbAceleracion.text = "\(String(posInicial)) m/s2"
+        lbVelocidad.text = "\(String(velocidadInicial)) m/s"
+        lbAceleracion.text = "\(String(aceleracion)) m/s2"
         
         setImagesPositionAndSize()
         
@@ -61,6 +61,25 @@ class ViewControllerGraficas: UIViewController {
     // MARK: - Actions
     @IBAction func modificaTiempo(_ sender: UIStepper) {
         //Pendiente cambiar posicion segun el stepper
+        let tiempoAntiguo = tiempo
+        tiempo = Int(sender.value)
+        
+        let velocidad = velocidadInicial + aceleracion * Double(tiempo)
+        let posActual = posInicial + velocidadInicial * Double(tiempo) + 0.5 * aceleracion * (Double(tiempo) * Double(tiempo))
+        
+        if posActual >= -20.0 && posActual <= 20.0 {
+            let posRelativa = ((CGFloat(posActual) + 20.0) / 40.0) * longitudPlataforma
+            imObjetoMovimiento.frame.origin.x = alignmentIzquierda + posRelativa - (imObjetoMovimiento.frame.width * 0.5)
+            
+            /* TODO: Formatear el numero a unos cuantos digitos */
+            lbPosicionInicial.text = "\(String(posActual)) m"
+            lbVelocidad.text = "\(String(velocidad)) m/s"
+            lbTiempo.text = "\(tiempo) s"
+        }
+        else {
+            tiempo = tiempoAntiguo
+            sender.value = Double(tiempo)
+        }
     }
     
 

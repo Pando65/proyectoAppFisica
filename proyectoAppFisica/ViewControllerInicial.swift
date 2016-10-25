@@ -46,12 +46,28 @@ class ViewControllerInicial: UIViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if Double(tfVelocidad.text!) == nil || Double(tfAceleracion.text!) == nil {
+            let alerta = UIAlertController(title: "Error en los datos",
+                                           message: "Todos los campos deben tener valor numerico",
+                                           preferredStyle: .alert)
+            
+            alerta.addAction(UIAlertAction(title: "OK", style: .cancel,
+                                           handler: nil))
+            
+            present(alerta, animated: true, completion: nil)
+            
+            return false
+        }
+        
+        return true
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // TODO - validar que no esten los campos vacios
         if segue.identifier == "graficar" {
             let desteny = segue.destination as! ViewControllerGraficas
             desteny.posInicial  = Double(slPosicion.value)
-            desteny.velocidad = Double(tfVelocidad.text!)!
+            desteny.velocidadInicial = Double(tfVelocidad.text!)!
             desteny.aceleracion = Double(tfAceleracion.text!)!
             desteny.imagen = imSeleccionada.image
         }
