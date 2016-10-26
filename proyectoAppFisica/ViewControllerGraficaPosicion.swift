@@ -35,6 +35,8 @@ class ViewControllerGraficaPosicion: UIViewController {
         dataSets.append(lChartDataSet)
         let lChartData = LineChartData(dataSets: dataSets)
         lineChart.data = lChartData
+        lineChart.xAxis.axisMaximum = 20.0
+        lineChart.xAxis.axisMinimum = 0.0
     }
 
     override func didReceiveMemoryWarning() {
