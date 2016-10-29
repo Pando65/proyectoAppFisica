@@ -372,7 +372,7 @@
                                 <frame key="frameInset" height="144" maxY="236"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
-                                    <segue destination="YVI-9i-E9m" kind="embed" id="NY9-XB-Qm0"/>
+                                    <segue destination="YVI-9i-E9m" kind="embed" identifier="posChart" id="NY9-XB-Qm0"/>
                                 </connections>
                             </containerView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wall" translatesAutoresizingMaskIntoConstraints="NO" id="q3D-1I-dZM">
@@ -424,7 +424,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hmm-Tx-gnG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1692" y="328"/>
+            <point key="canvasLocation" x="1713" y="328"/>
         </scene>
     </scenes>
     <resources>

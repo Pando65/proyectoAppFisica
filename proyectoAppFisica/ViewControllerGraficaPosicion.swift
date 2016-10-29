@@ -16,10 +16,23 @@ class ViewControllerGraficaPosicion: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        yValues.append(1.0)
-        yValues.append(3.0)
-        yValues.append(-2.3)
+    }
+    
+    func addPoint(y: Double) {
+        yValues.append(y)
         setChart()
+    }
+    
+    func removeLastPoint() {
+        if yValues.count > 0 {
+            yValues.popLast()
+            if yValues.count > 0 {
+                setChart()
+            }
+            else {
+                lineChart.clear()
+            }
+        }
     }
     
     func setChart() {

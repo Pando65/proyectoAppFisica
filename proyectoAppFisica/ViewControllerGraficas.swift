@@ -29,6 +29,7 @@ class ViewControllerGraficas: UIViewController {
     var alignmentIzquierda: CGFloat = 0.0
     var longitudPlataforma: CGFloat = 0.0
     var imagen : UIImage!
+    var graficaPosicion : ViewControllerGraficaPosicion!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,8 +57,9 @@ class ViewControllerGraficas: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "posChart" {
+            graficaPosicion = segue.destination as! ViewControllerGraficaPosicion
+        }
     }
 
     // MARK: - Actions
@@ -72,6 +74,15 @@ class ViewControllerGraficas: UIViewController {
         if posActual >= -20.0 && posActual <= 20.0 {
             let posRelativa = ((CGFloat(posActual) + 20.0) / 40.0) * longitudPlataforma
             imObjetoMovimiento.frame.origin.x = alignmentIzquierda + posRelativa - (imObjetoMovimiento.frame.width * 0.5)
+            
+            // Envio el nuevo punto a la gráfica
+            if tiempoAntiguo < tiempo {
+                print("add point")
+                graficaPosicion.addPoint(y: posActual)
+            }
+            else {
+                graficaPosicion.removeLastPoint()
+            }
             
             /* TODO: Formatear el numero a unos cuantos digitos */
             lbPosicionInicial.text = "\(String(posActual)) m"
