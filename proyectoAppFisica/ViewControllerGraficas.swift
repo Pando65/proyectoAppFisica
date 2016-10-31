@@ -79,6 +79,14 @@ class ViewControllerGraficas: UIViewController {
             lbTiempo.text = "\(tiempo) s"
         }
         else {
+            let alerta = UIAlertController(title: "Ooops",
+                                           message: "Si avanzas un segundo el objeto va a chocar con la pared",
+                                           preferredStyle: .alert)
+            
+            alerta.addAction(UIAlertAction(title: "OK", style: .cancel,
+                                           handler: nil))
+            
+            present(alerta, animated: true, completion: nil)
             tiempo = tiempoAntiguo
             sender.value = Double(tiempo)
         }
