@@ -73,6 +73,10 @@ class ViewControllerGraficas: UIViewController {
         
         if posActual >= -20.0 && posActual <= 20.0 {
             let posRelativa = ((CGFloat(posActual) + 20.0) / 40.0) * longitudPlataforma
+            
+            UIView.animate(withDuration: 1, animations: {
+                self.imObjetoMovimiento.frame.origin.x = self.alignmentIzquierda + posRelativa - (self.imObjetoMovimiento.frame.width * 0.5)
+            })
             imObjetoMovimiento.frame.origin.x = alignmentIzquierda + posRelativa - (imObjetoMovimiento.frame.width * 0.5)
             
             // Envio el nuevo punto a la gráfica
@@ -84,7 +88,8 @@ class ViewControllerGraficas: UIViewController {
                 graficaPosicion.removeLastPoint()
             }
             
-            /* TODO: Formatear el numero a unos cuantos digitos */
+            /* TODO: Formatear el numero a unos
+             cuantos digitos */
             lbPosicionInicial.text = "\(String(posActual)) m"
             lbVelocidad.text = "\(String(velocidad)) m/s"
             lbTiempo.text = "\(tiempo) s"
