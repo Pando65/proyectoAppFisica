@@ -29,6 +29,7 @@ class ViewControllerGraficas: UIViewController {
     var alignmentIzquierda: CGFloat = 0.0
     var longitudPlataforma: CGFloat = 0.0
     var imagen : UIImage!
+    var arrPosiciones : [Double] = []
     var graficaPosicion : ViewControllerGraficaPosicion!
     
     override func viewDidLoad() {
@@ -44,6 +45,8 @@ class ViewControllerGraficas: UIViewController {
         
         imObjetoMovimiento.image = imagen
         
+        llenarArreglos()
+        graficaPosicion.addPoint()
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,8 +84,7 @@ class ViewControllerGraficas: UIViewController {
             
             // Envio el nuevo punto a la gráfica
             if tiempoAntiguo < tiempo {
-                print("add point")
-                graficaPosicion.addPoint(y: posActual)
+                graficaPosicion.addPoint()
             }
             else {
                 graficaPosicion.removeLastPoint()
@@ -110,6 +112,18 @@ class ViewControllerGraficas: UIViewController {
     
 
     // MAR: - Functions
+    func llenarArreglos() {
+        //var velocidad = velocidadInicial
+        var posicion = posInicial
+        var tiempo = 0
+        repeat {
+            posicion = posInicial + velocidadInicial * Double(tiempo) + 0.5 * aceleracion * (Double(tiempo) * Double(tiempo))
+            arrPosiciones.append(posicion)
+            tiempo += 1
+        } while posicion >= -20 && posicion <= 20
+        print(arrPosiciones)
+        graficaPosicion.yValues = arrPosiciones
+    }
     func setImagesPositionAndSize() {
         screenWidth = screenSize.width
         

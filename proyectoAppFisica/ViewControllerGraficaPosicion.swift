@@ -13,32 +13,28 @@ class ViewControllerGraficaPosicion: UIViewController {
     
     @IBOutlet var lineChart: LineChartView!
     var yValues:[Double] = []
+    var index = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    func addPoint(y: Double) {
-        yValues.append(y)
+    func addPoint() {
+        index += 1
         setChart()
     }
     
     func removeLastPoint() {
-        if yValues.count > 0 {
-            yValues.popLast()
-            if yValues.count > 0 {
-                setChart()
-            }
-            else {
-                lineChart.clear()
-            }
+        if index > 0 {
+            index -= 1
+            setChart()
         }
     }
     
     func setChart() {
         var dataEntries:[ChartDataEntry] = []
         
-        for i in 0..<yValues.count {
+        for i in 0..<index + 1 {
             let dataEntry = ChartDataEntry(x: Double(i), y: yValues[i])
             dataEntries.append(dataEntry)
         }
@@ -48,7 +44,7 @@ class ViewControllerGraficaPosicion: UIViewController {
         dataSets.append(lChartDataSet)
         let lChartData = LineChartData(dataSets: dataSets)
         lineChart.data = lChartData
-        lineChart.xAxis.axisMaximum = 20.0
+        lineChart.xAxis.axisMaximum = Double(yValues.count - 1)
         lineChart.xAxis.axisMinimum = 0.0
     }
 
