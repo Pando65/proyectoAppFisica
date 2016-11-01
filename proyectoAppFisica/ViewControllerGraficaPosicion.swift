@@ -44,13 +44,37 @@ class ViewControllerGraficaPosicion: UIViewController {
         dataSets.append(lChartDataSet)
         let lChartData = LineChartData(dataSets: dataSets)
         lineChart.data = lChartData
+        
+        // Maximos y minimos del eje X (tiempo)
         lineChart.xAxis.axisMaximum = Double(yValues.count - 1)
         lineChart.xAxis.axisMinimum = 0.0
+        lineChart.leftAxis.axisMaximum = getMaxY()
+        lineChart.leftAxis.axisMinimum = getMinY()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func getMaxY() -> Double {
+        var max : Double = -21
+        for pos in yValues {
+            if pos > max {
+                max = pos
+            }
+        }
+        return max
+    }
+    
+    func getMinY() -> Double {
+        var min : Double = 21
+        for pos in yValues {
+            if pos < min {
+                min = pos
+            }
+        }
+        return min
     }
     
 
