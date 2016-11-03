@@ -13,48 +13,95 @@ class ViewControllerGraficaPosicion: UIViewController {
     
     @IBOutlet var lineChart: LineChartView!
     var yValues:[Double] = []
+    var index = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    func addPoint(y: Double) {
-        yValues.append(y)
+    func addPoint() {
+        index += 1
         setChart()
     }
     
     func removeLastPoint() {
-        if yValues.count > 0 {
-            yValues.popLast()
-            if yValues.count > 0 {
-                setChart()
-            }
-            else {
-                lineChart.clear()
-            }
+        if index > 0 {
+            index -= 1
+            setChart()
         }
     }
     
     func setChart() {
         var dataEntries:[ChartDataEntry] = []
         
-        for i in 0..<yValues.count {
+        for i in 0..<index + 1 {
             let dataEntry = ChartDataEntry(x: Double(i), y: yValues[i])
             dataEntries.append(dataEntry)
         }
         
         let lChartDataSet = LineChartDataSet(values: dataEntries, label: "Posición")
         var dataSets: [IChartDataSet] = []
+        
+        //estilo
+        // lChartDataSet.setColor(UIColor.blue) Color de la linea que une los puntos
+         lChartDataSet.highlightColor = UIColor.black
+        // lChartDataSet.lineWidth = 1.0
+        // lChartDataSet.circleRadius = 5.0
+        
         dataSets.append(lChartDataSet)
         let lChartData = LineChartData(dataSets: dataSets)
+        lChartData.highlightEnabled = true
         lineChart.data = lChartData
-        lineChart.xAxis.axisMaximum = 20.0
+        
+        // Maximos y minimos del eje X (tiempo)
+        lineChart.xAxis.axisMaximum = Double(yValues.count - 1)
         lineChart.xAxis.axisMinimum = 0.0
+        
+        // Maximos y minimos del eje Y (posicion)
+        lineChart.leftAxis.axisMaximum = getMaxY()
+        lineChart.leftAxis.axisMinimum = getMinY()
+        
+        // Desactivar el eje derecho
+        lineChart.rightAxis.enabled = false
+        
+        // Colocar el eje X abajo
+        lineChart.xAxis.labelPosition = .bottom
+        
+        // Quitar description text
+        lineChart.descriptionText = ""
+        
+        // Desactivar seleccion manual
+        lineChart.highlightPerTapEnabled = false
+        //lineChart.highlightPerDragEnabled = false
+        
+        let hl : Highlight = Highlight(x: Double(index), y: yValues[index], dataSetIndex: 0)
+        lineChart.highlightValue(hl)
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func getMaxY() -> Double {
+        var max : Double = -21
+        for pos in yValues {
+            if pos > max {
+                max = pos
+            }
+        }
+        return max
+    }
+    
+    func getMinY() -> Double {
+        var min : Double = 21
+        for pos in yValues {
+            if pos < min {
+                min = pos
+            }
+        }
+        return min
     }
     
 

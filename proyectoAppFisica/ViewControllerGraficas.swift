@@ -29,6 +29,8 @@ class ViewControllerGraficas: UIViewController {
     var alignmentIzquierda: CGFloat = 0.0
     var longitudPlataforma: CGFloat = 0.0
     var imagen : UIImage!
+    var arrPosiciones : [Double] = []
+    var arrVelocidades : [Double] = []
     var graficaPosicion : ViewControllerGraficaPosicion!
     
     override func viewDidLoad() {
@@ -44,6 +46,8 @@ class ViewControllerGraficas: UIViewController {
         
         imObjetoMovimiento.image = imagen
         
+        llenarArreglos()
+        graficaPosicion.addPoint()
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,9 +72,8 @@ class ViewControllerGraficas: UIViewController {
         let tiempoAntiguo = tiempo
         tiempo = Int(sender.value)
         
-        let velocidad = velocidadInicial + aceleracion * Double(tiempo)
-        let posActual = posInicial + velocidadInicial * Double(tiempo) + 0.5 * aceleracion * (Double(tiempo) * Double(tiempo))
-        
+        let posActual = arrPosiciones[tiempo]
+        let velocidad = arrVelocidades[tiempo]
         if posActual >= -20.0 && posActual <= 20.0 {
             let posRelativa = ((CGFloat(posActual) + 20.0) / 40.0) * longitudPlataforma
             
@@ -81,8 +84,7 @@ class ViewControllerGraficas: UIViewController {
             
             // Envio el nuevo punto a la gráfica
             if tiempoAntiguo < tiempo {
-                print("add point")
-                graficaPosicion.addPoint(y: posActual)
+                graficaPosicion.addPoint()
             }
             else {
                 graficaPosicion.removeLastPoint()
@@ -110,6 +112,19 @@ class ViewControllerGraficas: UIViewController {
     
 
     // MAR: - Functions
+    func llenarArreglos() {
+        var velocidad = velocidadInicial
+        var posicion = posInicial
+        var tiempo = 0
+        repeat {
+            posicion = posInicial + velocidadInicial * Double(tiempo) + 0.5 * aceleracion * (Double(tiempo) * Double(tiempo))
+            velocidad = velocidadInicial + aceleracion * Double(tiempo)
+            arrPosiciones.append(posicion)
+            arrVelocidades.append(velocidad)
+            tiempo += 1
+        } while posicion >= -20 && posicion <= 20
+        graficaPosicion.yValues = arrPosiciones
+    }
     func setImagesPositionAndSize() {
         screenWidth = screenSize.width
         
