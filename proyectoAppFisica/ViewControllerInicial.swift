@@ -71,20 +71,19 @@ class ViewControllerInicial: UIViewController {
             desteny.aceleracion = Double(tfAceleracion.text!)!
             desteny.imagen = imSeleccionada.image
         }
+        if segue.identifier == "datos" {
+            let vistaDatos = segue.destination as! ViewControllerDatos
+            vistaDatos.datoPosicion = Float(tfPosicionInicial.text!)
+            vistaDatos.datoVelocidad = Float(tfVelocidad.text!)
+            vistaDatos.datoAceleracion = Float(tfAceleracion.text!)
+        }
     }
     
     @IBAction func unwindGraficas(_ sender : UIStoryboardSegue) {
     }
     
-    @IBAction func unwindConfiguracionRegresar(_ sender : UIStoryboardSegue) {
-    }
-    
     @IBAction func unwindConfiguracionGuardar(_ sender : UIStoryboardSegue) {
         imSeleccionada.image = imagenSeleccionada
-    }
-    
-    @IBAction func unwindDatosRecientesRegresar(_ sender : UIStoryboardSegue) {
-        
     }
     
     @IBAction func unwindDatosRecientesSeleccionar(_ sender : UIStoryboardSegue) {
