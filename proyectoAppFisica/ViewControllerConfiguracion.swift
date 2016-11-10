@@ -23,9 +23,18 @@ class ViewControllerConfiguracion: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
-        seleccionImagen1()
+        if imagenIni.isEqual(UIImage(named: "Carrito")) {
+            seleccionImagen1()
+        }
+        else if imagenIni.isEqual(UIImage(named: "perrito")) {
+            seleccionImagen2()
+        }
+        else {
+            seleccionImagen3()
+        }
+        
         if btCarrito.isSelected {
             imagenIni = btCarrito.currentBackgroundImage
         }

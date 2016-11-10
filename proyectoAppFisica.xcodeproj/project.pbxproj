@@ -19,6 +19,8 @@
 		3F9E88641DB69C16009899C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F9E88621DB69C16009899C3 /* Main.storyboard */; };
 		3F9E88661DB69C16009899C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F9E88651DB69C16009899C3 /* Assets.xcassets */; };
 		3F9E88691DB69C16009899C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F9E88671DB69C16009899C3 /* LaunchScreen.storyboard */; };
+		FBBD480C1DD2307000A55647 /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = FBBD480B1DD2307000A55647 /* Property List.plist */; };
+		FBF521881DCBBFD600DE5A76 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF521871DCBBFD600DE5A76 /* NavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,8 @@
 		3F9E88651DB69C16009899C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F9E88681DB69C16009899C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F9E886A1DB69C16009899C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FBBD480B1DD2307000A55647 /* Property List.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
+		FBF521871DCBBFD600DE5A76 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationController.swift; path = ../NavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +130,7 @@
 				0096B6671DBC75FA001E78DF /* Charts.xcodeproj */,
 				3F9E885E1DB69C16009899C3 /* AppDelegate.swift */,
 				3F9E88621DB69C16009899C3 /* Main.storyboard */,
+				FBF521871DCBBFD600DE5A76 /* NavigationController.swift */,
 				3F8DC0A11DC9B8EF00433649 /* TableViewControllerDatos.swift */,
 				0096B67A1DBC76C7001E78DF /* ViewControllerGraficaPosicion.swift */,
 				3F63A00D1DB6EC5200E9F19A /* ViewControllerGraficas.swift */,
@@ -135,6 +140,7 @@
 				3F9E88651DB69C16009899C3 /* Assets.xcassets */,
 				3F9E88671DB69C16009899C3 /* LaunchScreen.storyboard */,
 				3F9E886A1DB69C16009899C3 /* Info.plist */,
+				FBBD480B1DD2307000A55647 /* Property List.plist */,
 			);
 			path = proyectoAppFisica;
 			sourceTree = "<group>";
@@ -232,6 +238,7 @@
 			files = (
 				3F9E88691DB69C16009899C3 /* LaunchScreen.storyboard in Resources */,
 				3F9E88661DB69C16009899C3 /* Assets.xcassets in Resources */,
+				FBBD480C1DD2307000A55647 /* Property List.plist in Resources */,
 				3F9E88641DB69C16009899C3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F63A00C1DB6EC2E00E9F19A /* ViewControllerInicial.swift in Sources */,
+				FBF521881DCBBFD600DE5A76 /* NavigationController.swift in Sources */,
 				3F63A00E1DB6EC5200E9F19A /* ViewControllerGraficas.swift in Sources */,
 				3F63A0101DB6EC6800E9F19A /* ViewControllerConfiguracion.swift in Sources */,
 				3F8DC0A21DC9B8EF00433649 /* TableViewControllerDatos.swift in Sources */,

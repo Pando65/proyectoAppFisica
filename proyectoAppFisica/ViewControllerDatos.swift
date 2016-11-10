@@ -57,6 +57,8 @@ class ViewControllerDatos: UIViewController , UITableViewDelegate , UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(  withIdentifier: "idCell", for: indexPath)
+        print("bofo")
+        print(String(tablaPosicion[(indexPath as NSIndexPath).row]))
         cell.textLabel?.text = String(tablaPosicion[(indexPath as NSIndexPath).row])
         //cell.textLabel?.text = String(tablaVelocidad[(indexPath as NSIndexPath).row])
         //cell.textLabel?.text = String(tablaAceleracion[(indexPath as NSIndexPath).row])

@@ -20,6 +20,7 @@ class ViewControllerGraficas: UIViewController {
     
     
     // MARK: - Atributos de la clase
+    var formatter = NumberFormatter()
     var posInicial = 0.0
     var velocidadInicial = 0.0
     var aceleracion = 0.0
@@ -37,10 +38,12 @@ class ViewControllerGraficas: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        /* TODO: Formatear el numero a unos
+         cuantos digitos */
         lbTiempo.text = "\(tiempo) s"
-        lbPosicionInicial.text = "\(String(posInicial)) m"
-        lbVelocidad.text = "\(String(velocidadInicial)) m/s"
-        lbAceleracion.text = "\(String(aceleracion)) m/s2"
+        lbPosicionInicial.text = "\(String(format: "%.2f", posInicial)) m"
+        lbVelocidad.text = "\(String(format: "%.2f", velocidadInicial)) m/s"
+        lbAceleracion.text = "\(String(format: "%.2f", aceleracion)) m/s2"
         
         setImagesPositionAndSize()
         
@@ -92,8 +95,8 @@ class ViewControllerGraficas: UIViewController {
             
             /* TODO: Formatear el numero a unos
              cuantos digitos */
-            lbPosicionInicial.text = "\(String(posActual)) m"
-            lbVelocidad.text = "\(String(velocidad)) m/s"
+            lbPosicionInicial.text = "\(String(format: "%.2f", posActual)) m"
+            lbVelocidad.text = "\(String(format: "%.2f", velocidad)) m/s"
             lbTiempo.text = "\(tiempo) s"
         }
         else {
