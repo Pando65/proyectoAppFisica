@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		004E23191DD553710078397D /* ViewControllerGraficaVelocidad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004E23181DD553710078397D /* ViewControllerGraficaVelocidad.swift */; };
 		0096B6731DBC7606001E78DF /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0096B66E1DBC75FA001E78DF /* Charts.framework */; };
 		0096B6741DBC7606001E78DF /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0096B66E1DBC75FA001E78DF /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0096B67B1DBC76C7001E78DF /* ViewControllerGraficaPosicion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0096B67A1DBC76C7001E78DF /* ViewControllerGraficaPosicion.swift */; };
@@ -66,6 +67,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		004E23181DD553710078397D /* ViewControllerGraficaVelocidad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerGraficaVelocidad.swift; sourceTree = "<group>"; };
 		0096B6671DBC75FA001E78DF /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
 		0096B67A1DBC76C7001E78DF /* ViewControllerGraficaPosicion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerGraficaPosicion.swift; sourceTree = "<group>"; };
 		3F63A00B1DB6EC2E00E9F19A /* ViewControllerInicial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerInicial.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				0096B6671DBC75FA001E78DF /* Charts.xcodeproj */,
 				3F9E885E1DB69C16009899C3 /* AppDelegate.swift */,
 				3F9E88621DB69C16009899C3 /* Main.storyboard */,
+				004E23181DD553710078397D /* ViewControllerGraficaVelocidad.swift */,
 				0096B67A1DBC76C7001E78DF /* ViewControllerGraficaPosicion.swift */,
 				3F63A00D1DB6EC5200E9F19A /* ViewControllerGraficas.swift */,
 				3F63A00F1DB6EC6800E9F19A /* ViewControllerConfiguracion.swift */,
@@ -244,6 +247,7 @@
 				3F63A00E1DB6EC5200E9F19A /* ViewControllerGraficas.swift in Sources */,
 				3F63A0101DB6EC6800E9F19A /* ViewControllerConfiguracion.swift in Sources */,
 				3F63A0121DB6ECBE00E9F19A /* ViewControllerDatos.swift in Sources */,
+				004E23191DD553710078397D /* ViewControllerGraficaVelocidad.swift in Sources */,
 				0096B67B1DBC76C7001E78DF /* ViewControllerGraficaPosicion.swift in Sources */,
 				3F9E885F1DB69C16009899C3 /* AppDelegate.swift in Sources */,
 			);
