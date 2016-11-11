@@ -7,7 +7,6 @@ import UIKit
 class ViewControllerConfiguracion: UIViewController {
 
     @IBOutlet weak var imFoto1: UIImageView!
-    @IBOutlet weak var btRegresar: UIBarButtonItem!
     @IBOutlet weak var imFoto2: UIImageView!
     @IBOutlet weak var imFoto3: UIImageView!
     @IBOutlet weak var btGuardar: UIButton!
@@ -17,14 +16,34 @@ class ViewControllerConfiguracion: UIViewController {
     @IBOutlet weak var btCarrito: UIButton!
     @IBOutlet weak var btPinguino: UIButton!
     @IBOutlet weak var btPersona: UIButton!
+    @IBOutlet weak var btRegresar: UIButton!
     
     var imagen : UIImage!
+    var imagenIni : UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
-        seleccionImagen1()
+        if imagenIni.isEqual(UIImage(named: "Carrito")) {
+            seleccionImagen1()
+        }
+        else if imagenIni.isEqual(UIImage(named: "perrito")) {
+            seleccionImagen2()
+        }
+        else {
+            seleccionImagen3()
+        }
+        
+        if btCarrito.isSelected {
+            imagenIni = btCarrito.currentBackgroundImage
+        }
+        if btPinguino.isSelected {
+            imagenIni = btPinguino.currentBackgroundImage
+        }
+        if btPersona.isSelected {
+            imagenIni = btPersona.currentBackgroundImage
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,8 +57,8 @@ class ViewControllerConfiguracion: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if sender as! UIButton == btGuardar {
-            let viewIni = segue.destination as! ViewControllerInicial
+        let viewIni = segue.destination as! ViewControllerInicial
+       if sender as! UIButton == btGuardar {
             if btCarrito.isSelected {
                 viewIni.imagenSeleccionada = btCarrito.currentBackgroundImage
             }
@@ -49,16 +68,18 @@ class ViewControllerConfiguracion: UIViewController {
             if btPersona.isSelected {
                 viewIni.imagenSeleccionada = btPersona.currentBackgroundImage
             }
-            if sender as! UIButton == btRegresar  {
-            }
+        }
+       else {
+            viewIni.imagenSeleccionada = imagenIni
         }
     }
+    
+    
 
     // MARK: - Action
     
     @IBAction func coloreaCarro(_ sender: UIButton) {
         seleccionImagen1()
-        
     }
 
     @IBAction func coloreaPinguino(_ sender: UIButton) {
@@ -98,9 +119,4 @@ class ViewControllerConfiguracion: UIViewController {
         btPinguino.isSelected = false
         btPersona.isSelected = true
     }
-    
-    
-    
-
-    
 }

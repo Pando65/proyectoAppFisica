@@ -6,6 +6,8 @@ import UIKit
 
 class ViewControllerInicial: UIViewController {
 
+    var arrArreglos : NSArray!
+    
     // MARK: - Outlets
     @IBOutlet weak var tfPosicionInicial: UITextField!
     @IBOutlet weak var slPosicion: UISlider!
@@ -24,7 +26,21 @@ class ViewControllerInicial: UIViewController {
         tfPosicionInicial.isEnabled = false
         tfPosicionInicial.text = String(slPosicion.value)
         
-        imSeleccionada.image = UIImage(named: "Carrito")
+        let path = Bundle.main.path(forResource: "Property List", ofType: "plist")
+        arrArreglos = NSArray(contentsOfFile: path!)
+        
+        let objSeleccionado = arrArreglos[0] as AnyObject
+        
+        switch objSeleccionado[0] as! NSNumber {
+        case 0:
+            imSeleccionada.image = UIImage(named: "Carrito")
+        case 1:
+            imSeleccionada.image = UIImage(named: "perrito")
+        case 2:
+            imSeleccionada.image = UIImage(named: "persona")
+        default:
+            imSeleccionada.image = UIImage(named: "Carrito")
+        }
         
         // Para esconder el teclado al tocar el fondo
         let tap = UITapGestureRecognizer(target: self, action: #selector(ViewControllerInicial.quitaTeclado))
@@ -71,20 +87,23 @@ class ViewControllerInicial: UIViewController {
             desteny.aceleracion = Double(tfAceleracion.text!)!
             desteny.imagen = imSeleccionada.image
         }
+        if segue.identifier == "datos" {
+            let vistaDatos = segue.destination as! ViewControllerDatos
+            vistaDatos.datoPosicion = Float(tfPosicionInicial.text!)
+            vistaDatos.datoVelocidad = Float(tfVelocidad.text!)
+            vistaDatos.datoAceleracion = Float(tfAceleracion.text!)
+        }
+        if segue.identifier == "configurar" {
+            let vistaConfiguracion = segue.destination as! ViewControllerConfiguracion
+            vistaConfiguracion.imagenIni = imSeleccionada.image
+        }
     }
     
     @IBAction func unwindGraficas(_ sender : UIStoryboardSegue) {
     }
     
-    @IBAction func unwindConfiguracionRegresar(_ sender : UIStoryboardSegue) {
-    }
-    
     @IBAction func unwindConfiguracionGuardar(_ sender : UIStoryboardSegue) {
         imSeleccionada.image = imagenSeleccionada
-    }
-    
-    @IBAction func unwindDatosRecientesRegresar(_ sender : UIStoryboardSegue) {
-        
     }
     
     @IBAction func unwindDatosRecientesSeleccionar(_ sender : UIStoryboardSegue) {

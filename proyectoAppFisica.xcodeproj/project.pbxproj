@@ -15,10 +15,13 @@
 		3F63A00E1DB6EC5200E9F19A /* ViewControllerGraficas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F63A00D1DB6EC5200E9F19A /* ViewControllerGraficas.swift */; };
 		3F63A0101DB6EC6800E9F19A /* ViewControllerConfiguracion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F63A00F1DB6EC6800E9F19A /* ViewControllerConfiguracion.swift */; };
 		3F63A0121DB6ECBE00E9F19A /* ViewControllerDatos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F63A0111DB6ECBE00E9F19A /* ViewControllerDatos.swift */; };
+		3F8DC0A21DC9B8EF00433649 /* TableViewControllerDatos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8DC0A11DC9B8EF00433649 /* TableViewControllerDatos.swift */; };
 		3F9E885F1DB69C16009899C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9E885E1DB69C16009899C3 /* AppDelegate.swift */; };
 		3F9E88641DB69C16009899C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F9E88621DB69C16009899C3 /* Main.storyboard */; };
 		3F9E88661DB69C16009899C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F9E88651DB69C16009899C3 /* Assets.xcassets */; };
 		3F9E88691DB69C16009899C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F9E88671DB69C16009899C3 /* LaunchScreen.storyboard */; };
+		FBBD480C1DD2307000A55647 /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = FBBD480B1DD2307000A55647 /* Property List.plist */; };
+		FBF521881DCBBFD600DE5A76 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF521871DCBBFD600DE5A76 /* NavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,12 +77,15 @@
 		3F63A00D1DB6EC5200E9F19A /* ViewControllerGraficas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerGraficas.swift; sourceTree = "<group>"; };
 		3F63A00F1DB6EC6800E9F19A /* ViewControllerConfiguracion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerConfiguracion.swift; sourceTree = "<group>"; };
 		3F63A0111DB6ECBE00E9F19A /* ViewControllerDatos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerDatos.swift; sourceTree = "<group>"; };
+		3F8DC0A11DC9B8EF00433649 /* TableViewControllerDatos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewControllerDatos.swift; sourceTree = "<group>"; };
 		3F9E885B1DB69C16009899C3 /* proyectoAppFisica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = proyectoAppFisica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F9E885E1DB69C16009899C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F9E88631DB69C16009899C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3F9E88651DB69C16009899C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F9E88681DB69C16009899C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F9E886A1DB69C16009899C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FBBD480B1DD2307000A55647 /* Property List.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
+		FBF521871DCBBFD600DE5A76 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationController.swift; path = ../NavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +133,8 @@
 				3F9E885E1DB69C16009899C3 /* AppDelegate.swift */,
 				3F9E88621DB69C16009899C3 /* Main.storyboard */,
 				004E23181DD553710078397D /* ViewControllerGraficaVelocidad.swift */,
+				FBF521871DCBBFD600DE5A76 /* NavigationController.swift */,
+				3F8DC0A11DC9B8EF00433649 /* TableViewControllerDatos.swift */,
 				0096B67A1DBC76C7001E78DF /* ViewControllerGraficaPosicion.swift */,
 				3F63A00D1DB6EC5200E9F19A /* ViewControllerGraficas.swift */,
 				3F63A00F1DB6EC6800E9F19A /* ViewControllerConfiguracion.swift */,
@@ -135,6 +143,7 @@
 				3F9E88651DB69C16009899C3 /* Assets.xcassets */,
 				3F9E88671DB69C16009899C3 /* LaunchScreen.storyboard */,
 				3F9E886A1DB69C16009899C3 /* Info.plist */,
+				FBBD480B1DD2307000A55647 /* Property List.plist */,
 			);
 			path = proyectoAppFisica;
 			sourceTree = "<group>";
@@ -168,7 +177,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = ITESM;
 				TargetAttributes = {
 					3F9E885A1DB69C15009899C3 = {
@@ -232,6 +241,7 @@
 			files = (
 				3F9E88691DB69C16009899C3 /* LaunchScreen.storyboard in Resources */,
 				3F9E88661DB69C16009899C3 /* Assets.xcassets in Resources */,
+				FBBD480C1DD2307000A55647 /* Property List.plist in Resources */,
 				3F9E88641DB69C16009899C3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,8 +254,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F63A00C1DB6EC2E00E9F19A /* ViewControllerInicial.swift in Sources */,
+				FBF521881DCBBFD600DE5A76 /* NavigationController.swift in Sources */,
 				3F63A00E1DB6EC5200E9F19A /* ViewControllerGraficas.swift in Sources */,
 				3F63A0101DB6EC6800E9F19A /* ViewControllerConfiguracion.swift in Sources */,
+				3F8DC0A21DC9B8EF00433649 /* TableViewControllerDatos.swift in Sources */,
 				3F63A0121DB6ECBE00E9F19A /* ViewControllerDatos.swift in Sources */,
 				004E23191DD553710078397D /* ViewControllerGraficaVelocidad.swift in Sources */,
 				0096B67B1DBC76C7001E78DF /* ViewControllerGraficaPosicion.swift in Sources */,
@@ -301,6 +313,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -350,6 +363,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
