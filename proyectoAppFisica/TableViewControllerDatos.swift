@@ -12,6 +12,8 @@ class TableViewControllerDatos: UITableViewController {
     
     var arrDiccionarios : NSArray!
 
+    @IBOutlet weak var btBack: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -99,7 +101,21 @@ class TableViewControllerDatos: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if sender as? UIBarButtonItem != btBack {
+            let vista = segue.destination as! ViewControllerInicial
+            let indice = tableView.indexPathForSelectedRow
+            
+            let diccionario = arrDiccionarios[((indice as NSIndexPath?)?.row)!] as! NSDictionary
+            
+            let pos = diccionario.value(forKey: "posicion") as! Double
+            let vel = diccionario.value(forKey: "velocidad") as! Double
+            let ace = diccionario.value(forKey: "aceleracion") as! Double
+            
+            vista.tfPosicionInicial.text = String(pos)
+            vista.slPosicion.value = Float(pos)
+            vista.tfVelocidad.text = String(vel)
+            vista.tfAceleracion.text = String(ace)
+        }
     }
-
 
 }
