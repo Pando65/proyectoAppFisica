@@ -36,10 +36,9 @@ class ViewControllerInicial: UIViewController {
         if FileManager.default.fileExists(atPath: filePath)
         {
             arrArreglos = NSArray(contentsOfFile: filePath)
-//        }
-//        let path = Bundle.main.path(forResource: "Property List", ofType: "plist")
-//arrArreglos = NSArray(contentsOfFile: path!)
-        
+
+            
+            // lectura de la imagen seleccionada guardada
             let objSeleccionado = Int(arrArreglos![0] as! NSNumber)
             
             switch objSeleccionado {
@@ -52,6 +51,9 @@ class ViewControllerInicial: UIViewController {
                 default:
                     imSeleccionada.image = UIImage(named: "Carrito")
             }
+            
+            // lectura del arreglo de diccionarios con los datos recientes
+            arrDiccionario = arrArreglos[1] as! NSMutableArray
        }
         else {
             print("todo normal **************************")
@@ -143,13 +145,13 @@ class ViewControllerInicial: UIViewController {
         let arreglo: NSMutableArray = []
         
         if (imSeleccionada.image?.isEqual(UIImage(named: "Carrito")))! {
-            arreglo.addObjects(from: [0])
+            arreglo.addObjects(from: [0, arrDiccionario])
         }
         else if (imSeleccionada.image?.isEqual(UIImage(named: "Carrito")))! {
-            arreglo.addObjects(from: [1])
+            arreglo.addObjects(from: [1, arrDiccionario])
         }
         else {
-            arreglo.addObjects(from: [2])
+            arreglo.addObjects(from: [2, arrDiccionario])
         }
         arreglo.write(toFile: dataFilePath(), atomically: true)
     }
@@ -159,6 +161,6 @@ class ViewControllerInicial: UIViewController {
         
         let documentsDirectory = paths[0]
         
-        return documentsDirectory.appending("/archi2.plist")
+        return documentsDirectory.appending("/archiPrueba2.plist")
     }
 }
