@@ -58,15 +58,19 @@ class ViewControllerConfiguracion: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let viewIni = segue.destination as! ViewControllerInicial
+        
        if sender as! UIButton == btGuardar {
             if btCarrito.isSelected {
                 viewIni.imagenSeleccionada = btCarrito.currentBackgroundImage
+                viewIni.idImagen = 0
             }
             if btPinguino.isSelected {
                 viewIni.imagenSeleccionada = btPinguino.currentBackgroundImage
+                viewIni.idImagen = 1
             }
             if btPersona.isSelected {
                 viewIni.imagenSeleccionada = btPersona.currentBackgroundImage
+                viewIni.idImagen = 2
             }
         }
        else {

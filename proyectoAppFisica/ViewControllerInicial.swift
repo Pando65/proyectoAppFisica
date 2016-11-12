@@ -6,6 +6,7 @@ import UIKit
 
 class ViewControllerInicial: UIViewController {
 
+    var idImagen = 0
     var arrArreglos : NSArray!
     var arrDiccionario : NSMutableArray! = [["posicion":0.0, "velocidad":0.0, "aceleracion":0.0]]
     
@@ -44,20 +45,24 @@ class ViewControllerInicial: UIViewController {
             switch objSeleccionado {
                 case 0:
                     imSeleccionada.image = UIImage(named: "Carrito")
+                    idImagen = 0
                 case 1:
                     imSeleccionada.image = UIImage(named: "perrito")
+                    idImagen = 1
                 case 2:
                     imSeleccionada.image = UIImage(named: "persona")
+                    idImagen = 2
                 default:
                     imSeleccionada.image = UIImage(named: "Carrito")
+                    idImagen = 0
             }
             
             // lectura del arreglo de diccionarios con los datos recientes
             arrDiccionario = arrArreglos[1] as! NSMutableArray
        }
         else {
-            print("todo normal **************************")
             imSeleccionada.image = UIImage(named: "Carrito")
+            idImagen = 0
         }
         
         // Para esconder el teclado al tocar el fondo
@@ -143,17 +148,19 @@ class ViewControllerInicial: UIViewController {
     func aplicacionTerminara(notificacion: NSNotification) {
         // Lo que se hace antes de cerrar la aplicacion
         let arreglo: NSMutableArray = []
+        let img = imSeleccionada.image! as UIImage
         
-        if (imSeleccionada.image?.isEqual(UIImage(named: "Carrito")))! {
+        if idImagen == 0 {
             arreglo.addObjects(from: [0, arrDiccionario])
         }
-        else if (imSeleccionada.image?.isEqual(UIImage(named: "Carrito")))! {
+        else if idImagen == 1 {
             arreglo.addObjects(from: [1, arrDiccionario])
         }
         else {
             arreglo.addObjects(from: [2, arrDiccionario])
         }
         arreglo.write(toFile: dataFilePath(), atomically: true)
+        
     }
     
     func dataFilePath() -> String {
