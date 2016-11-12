@@ -10,10 +10,14 @@ import UIKit
 
 class NavigationController: UINavigationController {
 
+    var arrDiccionario : NSMutableArray!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let siguienteVista = topViewController as! TableViewControllerDatos
+        siguienteVista.arrDiccionarios = arrDiccionario
     }
 
     override func didReceiveMemoryWarning() {

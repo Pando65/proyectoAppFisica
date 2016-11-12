@@ -7,6 +7,7 @@ import UIKit
 class ViewControllerInicial: UIViewController {
 
     var arrArreglos : NSArray!
+    var arrDiccionario : NSMutableArray! = [["posicion":0.0, "velocidad":0.0, "aceleracion":0.0]]
     
     // MARK: - Outlets
     @IBOutlet weak var tfPosicionInicial: UITextField!
@@ -23,22 +24,37 @@ class ViewControllerInicial: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let app = UIApplication.shared
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(aplicacionTerminara(notificacion:)), name: .UIApplicationDidEnterBackground, object: app)
+
         tfPosicionInicial.isEnabled = false
         tfPosicionInicial.text = String(slPosicion.value)
         
-        let path = Bundle.main.path(forResource: "Property List", ofType: "plist")
-        arrArreglos = NSArray(contentsOfFile: path!)
+        // Cargar datos de archivo
+        let filePath = dataFilePath()
+        if FileManager.default.fileExists(atPath: filePath)
+        {
+            arrArreglos = NSArray(contentsOfFile: filePath)
+//        }
+//        let path = Bundle.main.path(forResource: "Property List", ofType: "plist")
+//arrArreglos = NSArray(contentsOfFile: path!)
         
-        let objSeleccionado = arrArreglos[0] as AnyObject
-        
-        switch objSeleccionado[0] as! NSNumber {
-        case 0:
-            imSeleccionada.image = UIImage(named: "Carrito")
-        case 1:
-            imSeleccionada.image = UIImage(named: "perrito")
-        case 2:
-            imSeleccionada.image = UIImage(named: "persona")
-        default:
+            let objSeleccionado = Int(arrArreglos![0] as! NSNumber)
+            
+            switch objSeleccionado {
+                case 0:
+                    imSeleccionada.image = UIImage(named: "Carrito")
+                case 1:
+                    imSeleccionada.image = UIImage(named: "perrito")
+                case 2:
+                    imSeleccionada.image = UIImage(named: "persona")
+                default:
+                    imSeleccionada.image = UIImage(named: "Carrito")
+            }
+       }
+        else {
+            print("todo normal **************************")
             imSeleccionada.image = UIImage(named: "Carrito")
         }
         
@@ -86,12 +102,19 @@ class ViewControllerInicial: UIViewController {
             desteny.velocidadInicial = Double(tfVelocidad.text!)!
             desteny.aceleracion = Double(tfAceleracion.text!)!
             desteny.imagen = imSeleccionada.image
+            
+            let diccionario = ["posicion": desteny.posInicial, "velocidad": desteny.velocidadInicial, "aceleracion": desteny.aceleracion]
+            
+            arrDiccionario.insert(diccionario, at: 0)
+            
+            // Solo se manejan hasta 10 datos recientes
+            if arrDiccionario.count > 10 {
+                arrDiccionario.removeLastObject()
+            }
         }
         if segue.identifier == "datos" {
-            let vistaDatos = segue.destination as! ViewControllerDatos
-            vistaDatos.datoPosicion = Float(tfPosicionInicial.text!)
-            vistaDatos.datoVelocidad = Float(tfVelocidad.text!)
-            vistaDatos.datoAceleracion = Float(tfAceleracion.text!)
+            let vistaDatos = segue.destination as! NavigationController
+            vistaDatos.arrDiccionario = arrDiccionario
         }
         if segue.identifier == "configurar" {
             let vistaConfiguracion = segue.destination as! ViewControllerConfiguracion
@@ -115,4 +138,27 @@ class ViewControllerInicial: UIViewController {
         view.endEditing(true)
     }
 
+    func aplicacionTerminara(notificacion: NSNotification) {
+        // Lo que se hace antes de cerrar la aplicacion
+        let arreglo: NSMutableArray = []
+        
+        if (imSeleccionada.image?.isEqual(UIImage(named: "Carrito")))! {
+            arreglo.addObjects(from: [0])
+        }
+        else if (imSeleccionada.image?.isEqual(UIImage(named: "Carrito")))! {
+            arreglo.addObjects(from: [1])
+        }
+        else {
+            arreglo.addObjects(from: [2])
+        }
+        arreglo.write(toFile: dataFilePath(), atomically: true)
+    }
+    
+    func dataFilePath() -> String {
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        
+        let documentsDirectory = paths[0]
+        
+        return documentsDirectory.appending("/archi2.plist")
+    }
 }

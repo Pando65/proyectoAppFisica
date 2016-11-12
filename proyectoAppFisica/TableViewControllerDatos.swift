@@ -10,15 +10,7 @@ import UIKit
 
 class TableViewControllerDatos: UITableViewController {
     
-    @IBOutlet weak var btRegresar: UIBarButtonItem!
-    
-    var tablaVelocidad = [Float]()
-    var tablaPosicion =  [Float]()
-    var tablaAceleracion =  [Float]()
-        
-    var datoPosicion : Float!
-    var datoVelocidad : Float!
-    var datoAceleracion : Float!
+    var arrDiccionarios : NSArray!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,17 +20,6 @@ class TableViewControllerDatos: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-        tablaPosicion.append(datoPosicion)
-        tablaVelocidad.append(datoVelocidad)
-        tablaAceleracion.append(datoAceleracion)
-        
-        print("imprime tabla pos")
-        print(tablaPosicion)
-        print("imprime tabla vel")
-        print(tablaVelocidad)
-        print("imprime tabla acel")
-        print(tablaAceleracion)
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,16 +36,24 @@ class TableViewControllerDatos: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 8
+        return arrDiccionarios.count
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(  withIdentifier: "idCell", for: indexPath)
-        //cell.textLabel?.text = String(tablaPosicion[(indexPath as NSIndexPath).row])
-        //cell.textLabel?.text = String(tablaVelocidad[(indexPath as NSIndexPath).row])
-        // cell.textLabel?.text = String(tablaAceleracion[(indexPath as NSIndexPath).row])
-        //cell.detailTextLabel?.text = "\((indexPath as NSIndexPath).row)"
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> TableViewCell {
+        let cell = tableView.dequeueReusableCell(  withIdentifier: "celda", for: indexPath) as! TableViewCell
+        
+        let diccionario = arrDiccionarios[indexPath.row] as! NSDictionary
+        print("TRYE THIS")
+        print(diccionario.value(forKey: "posicion") as! Double)
+        let pos = diccionario.value(forKey: "posicion") as! Double
+        let vel = diccionario.value(forKey: "velocidad") as! Double
+        let ace = diccionario.value(forKey: "aceleracion") as! Double
+        
+        cell.lbPosicion.text = String(pos)
+        cell.lbVelocidad.text = String(vel)
+        cell.lbAceleracion.text = String(ace)
+        
         return cell
     }
 
