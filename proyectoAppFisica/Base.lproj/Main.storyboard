@@ -289,10 +289,6 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fqq-SI-7cf">
-                                <frame key="frameInset" minX="67" minY="122" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DjI-Xb-jde">
                                 <frame key="frameInset" minX="163" minY="463" width="49" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -322,13 +318,6 @@
                                     <action selector="modificaTiempo:" destination="qBk-P9-WYd" eventType="valueChanged" id="3iW-Ru-2fw"/>
                                 </connections>
                             </stepper>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q5l-OC-dZB">
-                                <frame key="frameInset" height="144" maxY="236"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <segue destination="YVI-9i-E9m" kind="embed" identifier="posChart" id="NY9-XB-Qm0"/>
-                                </connections>
-                            </containerView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wall" translatesAutoresizingMaskIntoConstraints="NO" id="q3D-1I-dZM">
                                 <frame key="frameInset" minX="8" minY="450" width="33" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -337,6 +326,20 @@
                                 <frame key="frameInset" minX="332" minY="450" width="33" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wd0-iw-Ze4">
+                                <frame key="frameInset" height="160" maxY="409"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="H7l-CQ-bdx" kind="embed" identifier="velChart" id="Hyq-nB-fTK"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q5l-OC-dZB">
+                                <frame key="frameInset" height="160" maxY="241"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="YVI-9i-E9m" kind="embed" identifier="posChart" id="NY9-XB-Qm0"/>
+                                </connections>
+                            </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="pi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aI-ta-s3V">
                                 <frame key="frameInset" minX="29" minY="607" width="100" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -382,7 +385,7 @@
                         <viewControllerLayoutGuide type="bottom" id="F0M-Cf-bfS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="CNB-rv-rny" customClass="LineChartView" customModule="Charts">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="144"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.23299341779999999" green="0.60294406190000005" blue="0.62569535340000004" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -392,7 +395,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hmm-Tx-gnG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2070" y="154"/>
+            <point key="canvasLocation" x="1713" y="236"/>
+        </scene>
+        <!--View Controller Grafica Velocidad-->
+        <scene sceneID="zLh-CO-SwW">
+            <objects>
+                <viewController id="H7l-CQ-bdx" customClass="ViewControllerGraficaVelocidad" customModule="proyectoAppFisica" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="paI-gh-cve" customClass="LineChartView" customModule="Charts">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.23529411764705882" green="0.60392156862745094" blue="0.62352941176470589" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="lineChart" destination="paI-gh-cve" id="giJ-XB-cGg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4KF-mT-Ba3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1713" y="-51"/>
         </scene>
         <!--Datos Recientes-->
         <scene sceneID="53N-vz-HO0">

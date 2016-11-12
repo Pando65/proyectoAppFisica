@@ -33,6 +33,7 @@ class ViewControllerGraficas: UIViewController {
     var arrPosiciones : [Double] = []
     var arrVelocidades : [Double] = []
     var graficaPosicion : ViewControllerGraficaPosicion!
+    var graficaVelocidad : ViewControllerGraficaVelocidad!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +52,7 @@ class ViewControllerGraficas: UIViewController {
         
         llenarArreglos()
         graficaPosicion.addPoint()
+        graficaVelocidad.addPoint()
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,6 +68,9 @@ class ViewControllerGraficas: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "posChart" {
             graficaPosicion = segue.destination as! ViewControllerGraficaPosicion
+        }
+        if segue.identifier == "velChart" {
+            graficaVelocidad = segue.destination as! ViewControllerGraficaVelocidad
         }
     }
 
@@ -88,9 +93,11 @@ class ViewControllerGraficas: UIViewController {
             // Envio el nuevo punto a la gráfica
             if tiempoAntiguo < tiempo {
                 graficaPosicion.addPoint()
+                graficaVelocidad.addPoint()
             }
             else {
                 graficaPosicion.removeLastPoint()
+                graficaVelocidad.removeLastPoint()
             }
             
             /* TODO: Formatear el numero a unos
@@ -127,6 +134,7 @@ class ViewControllerGraficas: UIViewController {
             tiempo += 1
         } while posicion >= -20 && posicion <= 20
         graficaPosicion.yValues = arrPosiciones
+        graficaVelocidad.yValues = arrVelocidades
     }
     func setImagesPositionAndSize() {
         screenWidth = screenSize.width

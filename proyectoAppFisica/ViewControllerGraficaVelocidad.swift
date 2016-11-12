@@ -1,15 +1,15 @@
 //
-//  ViewControllerGraficaPosicion.swift
+//  ViewControllerGraficaVelocidad.swift
 //  proyectoAppFisica
 //
-//  Created by Omar Manjarrez on 22/10/16.
+//  Created by Omar Manjarrez on 10/11/16.
 //  Copyright © 2016 ITESM. All rights reserved.
 //
 
 import UIKit
 import Charts
 
-class ViewControllerGraficaPosicion: UIViewController {
+class ViewControllerGraficaVelocidad: UIViewController {
     
     @IBOutlet var lineChart: LineChartView!
     var yValues:[Double] = []
@@ -17,6 +17,8 @@ class ViewControllerGraficaPosicion: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
     }
     
     func addPoint() {
@@ -39,12 +41,12 @@ class ViewControllerGraficaPosicion: UIViewController {
             dataEntries.append(dataEntry)
         }
         
-        let lChartDataSet = LineChartDataSet(values: dataEntries, label: "Posición")
+        let lChartDataSet = LineChartDataSet(values: dataEntries, label: "Aceleración")
         var dataSets: [IChartDataSet] = []
         
         //estilo
         // lChartDataSet.setColor(UIColor.blue) Color de la linea que une los puntos
-         lChartDataSet.highlightColor = UIColor.init(red: 144, green: 234, blue: 254, alpha: 0.7)
+        lChartDataSet.highlightColor = UIColor.init(red: 144, green: 234, blue: 254, alpha: 0.7)
         // lChartDataSet.lineWidth = 1.0
         // lChartDataSet.circleRadius = 5.0
         
@@ -78,11 +80,22 @@ class ViewControllerGraficaPosicion: UIViewController {
         lineChart.highlightValue(hl)
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
     func getMaxY() -> Double {
         var max : Double = -21
@@ -104,15 +117,4 @@ class ViewControllerGraficaPosicion: UIViewController {
         return min
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
