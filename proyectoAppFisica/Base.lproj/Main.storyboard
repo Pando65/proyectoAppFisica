@@ -435,14 +435,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Er3-hp-G7t">
-                                            <frame key="frameInset" minX="142" minY="21" width="42" height="21"/>
+                                            <frame key="frameInset" minX="142" minY="21" width="67" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1Q-Y9-p7B">
-                                            <frame key="frameInset" minX="268" minY="21" width="42" height="21"/>
+                                            <frame key="frameInset" minX="268" minY="21" width="76" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -470,7 +470,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="znY-RK-wLu">
-                                            <frame key="frameInset" minX="18" minY="21" width="42" height="21"/>
+                                            <frame key="frameInset" minX="18" minY="21" width="65" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -494,7 +494,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Datos Recientes" id="hCO-Go-fbc">
                         <barButtonItem key="backBarButtonItem" title="back" id="qEz-Se-gWY"/>
-                        <barButtonItem key="leftBarButtonItem" title="back" id="Alb-hF-1pK">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="Alb-hF-1pK">
                             <connections>
                                 <segue destination="9Am-AU-BJK" kind="unwind" unwindAction="unwindDatosRecientesSeleccionar:" id="s8U-uk-XX0"/>
                             </connections>
@@ -507,7 +507,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="INC-AF-Lcq" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="9Am-AU-BJK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1548" y="881"/>
+            <point key="canvasLocation" x="1548" y="880.20989505247383"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vhW-MX-0y5">

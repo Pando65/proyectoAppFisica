@@ -52,9 +52,9 @@ class TableViewControllerDatos: UITableViewController {
         let vel = diccionario.value(forKey: "velocidad") as! Double
         let ace = diccionario.value(forKey: "aceleracion") as! Double
         
-        cell.lbPosicion.text = String(pos)
-        cell.lbVelocidad.text = String(vel)
-        cell.lbAceleracion.text = String(ace)
+        cell.lbPosicion.text = String(format: "%.2f", pos)
+        cell.lbVelocidad.text = String(format: "%.2f", vel)
+        cell.lbAceleracion.text = String(format: "%.2f", ace)
         
         return cell
     }
