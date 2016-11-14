@@ -110,13 +110,16 @@ class ViewControllerInicial: UIViewController {
             desteny.aceleracion = Double(tfAceleracion.text!)!
             desteny.imagen = imSeleccionada.image
             
-            let diccionario = ["posicion": desteny.posInicial, "velocidad": desteny.velocidadInicial, "aceleracion": desteny.aceleracion]
+            // Se verifica que el grupo de datos a insertar no es repetido
+            if insertarEnDiccionario(pos: desteny.posInicial, vel: desteny.velocidadInicial, ace: desteny.aceleracion) {
+                let diccionario = ["posicion": desteny.posInicial, "velocidad": desteny.velocidadInicial, "aceleracion": desteny.aceleracion]
             
-            arrDiccionario.insert(diccionario, at: 0)
+                arrDiccionario.insert(diccionario, at: 0)
             
-            // Solo se manejan hasta 10 datos recientes
-            if arrDiccionario.count > 10 {
-                arrDiccionario.removeLastObject()
+                // Solo se manejan hasta 10 datos recientes
+                if arrDiccionario.count > 10 {
+                    arrDiccionario.removeLastObject()
+                }
             }
         }
         if segue.identifier == "datos" {
@@ -145,6 +148,23 @@ class ViewControllerInicial: UIViewController {
         view.endEditing(true)
     }
 
+    func insertarEnDiccionario(pos: Double, vel: Double, ace: Double) -> Bool {
+        for i in 0...arrDiccionario.count - 1 {
+            let dicc = arrDiccionario[i] as! NSDictionary
+            
+            if dicc["posicion"] as! Double == pos {
+                if dicc["velocidad"] as! Double == vel {
+                    if dicc["aceleracion"] as! Double == ace {
+                        // Se repiten datos
+                        return false
+                    }
+                }
+            }
+        }
+        // No se repite ninguno
+        return true
+    }
+    
     func aplicacionTerminara(notificacion: NSNotification) {
         // Lo que se hace antes de cerrar la aplicacion
         let arreglo: NSMutableArray = []
