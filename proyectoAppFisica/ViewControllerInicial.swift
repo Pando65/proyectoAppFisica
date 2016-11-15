@@ -4,7 +4,14 @@
 
 import UIKit
 
-class ViewControllerInicial: UIViewController {
+// Extension de string para poder verificar si una cadena de caracteres se puede castear a decimal. Se utiliza en los campos de texto para validar datos correctos
+extension String {
+    var doubleValue: Double? {
+        return Double(self)
+    }
+}
+
+class ViewControllerInicial: UIViewController, UITextFieldDelegate {
 
     var idImagen = 0
     var arrArreglos : NSArray!
@@ -29,6 +36,9 @@ class ViewControllerInicial: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(aplicacionTerminara(notificacion:)), name: .UIApplicationDidEnterBackground, object: app)
 
+        tfVelocidad.delegate = self
+        tfAceleracion.delegate = self
+        
         tfPosicionInicial.isEnabled = false
         tfPosicionInicial.text = String(slPosicion.value)
         
@@ -80,7 +90,6 @@ class ViewControllerInicial: UIViewController {
         slPosicion.value = round(slPosicion.value)
         tfPosicionInicial.text = String(slPosicion.value)
     }
-    
 
     // MARK: - Navigation
 
@@ -168,7 +177,6 @@ class ViewControllerInicial: UIViewController {
     func aplicacionTerminara(notificacion: NSNotification) {
         // Lo que se hace antes de cerrar la aplicacion
         let arreglo: NSMutableArray = []
-        let img = imSeleccionada.image! as UIImage
         
         if idImagen == 0 {
             arreglo.addObjects(from: [0, arrDiccionario])
@@ -189,5 +197,20 @@ class ViewControllerInicial: UIViewController {
         let documentsDirectory = paths[0]
         
         return documentsDirectory.appending("/archiPrueba2.plist")
+    }
+    
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let newString = NSString(string: textField.text!).replacingCharacters(in: range, with: string)
+        
+        if let value = newString.doubleValue  {
+            return true
+        }
+        else if newString == "." || newString == "-" || newString == "-." {
+            return true
+        }
+        else {
+            return false
+        }
     }
 }
