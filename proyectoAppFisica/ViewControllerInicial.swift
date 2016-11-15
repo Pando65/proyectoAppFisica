@@ -26,7 +26,6 @@ class ViewControllerInicial: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var btDatosRecientes: UIButton!
     @IBOutlet weak var imSeleccionada: UIImageView!
     
-    @IBOutlet weak var probar: UITextField!
     var imagenSeleccionada : UIImage!
     
     override func viewDidLoad() {
@@ -90,14 +89,6 @@ class ViewControllerInicial: UIViewController, UITextFieldDelegate {
     @IBAction func asignarPosInicial(_ sender: UISlider) {
         slPosicion.value = round(slPosicion.value)
         tfPosicionInicial.text = String(slPosicion.value)
-    }
-    
-    @IBAction func cambiaVelocidad(_ sender: UITextField) {
-        
-    }
-    
-    @IBAction func cambiaAceleracion(_ sender: UITextField) {
-        
     }
 
     // MARK: - Navigation
