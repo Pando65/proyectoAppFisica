@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewControllerCreditos: UIViewController {
+    
+    @IBOutlet weak var btRegresar: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
