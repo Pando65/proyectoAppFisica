@@ -113,15 +113,15 @@ class ViewControllerInicial: UIViewController, UITextFieldDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "graficar" {
-            let desteny = segue.destination as! ViewControllerGraficas
-            desteny.posInicial  = Double(slPosicion.value)
-            desteny.velocidadInicial = Double(tfVelocidad.text!)!
-            desteny.aceleracion = Double(tfAceleracion.text!)!
-            desteny.imagen = imSeleccionada.image
+            let destiny = segue.destination as! ViewControllerGraficas
+            destiny.posInicial  = Double(slPosicion.value)
+            destiny.velocidadInicial = Double(tfVelocidad.text!)!
+            destiny.aceleracion = Double(tfAceleracion.text!)!
+            destiny.imagen = imSeleccionada.image
             
             // Se verifica que el grupo de datos a insertar no es repetido
-            if insertarEnDiccionario(pos: desteny.posInicial, vel: desteny.velocidadInicial, ace: desteny.aceleracion) {
-                let diccionario = ["posicion": desteny.posInicial, "velocidad": desteny.velocidadInicial, "aceleracion": desteny.aceleracion]
+            if insertarEnDiccionario(pos: destiny.posInicial, vel: destiny.velocidadInicial, ace: destiny.aceleracion) {
+                let diccionario = ["posicion": destiny.posInicial, "velocidad": destiny.velocidadInicial, "aceleracion": destiny.aceleracion]
             
                 arrDiccionario.insert(diccionario, at: 0)
             
@@ -142,6 +142,9 @@ class ViewControllerInicial: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func unwindGraficas(_ sender : UIStoryboardSegue) {
+    }
+    
+    @IBAction func unwindCreditos(_ sender : UIStoryboardSegue) {
     }
     
     @IBAction func unwindConfiguracionGuardar(_ sender : UIStoryboardSegue) {

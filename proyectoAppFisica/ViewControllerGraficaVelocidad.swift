@@ -41,7 +41,7 @@ class ViewControllerGraficaVelocidad: UIViewController {
             dataEntries.append(dataEntry)
         }
         
-        let lChartDataSet = LineChartDataSet(values: dataEntries, label: "Aceleración")
+        let lChartDataSet = LineChartDataSet(values: dataEntries, label: "Velocidad")
         var dataSets: [IChartDataSet] = []
         
         //estilo
@@ -98,23 +98,23 @@ class ViewControllerGraficaVelocidad: UIViewController {
      */
     
     func getMaxY() -> Double {
-        var max : Double = -21
+        var max : Double = -10000
         for pos in yValues {
             if pos > max {
                 max = pos
             }
         }
-        return max
+        return max + 4
     }
     
     func getMinY() -> Double {
-        var min : Double = 21
+        var min : Double = 10000
         for pos in yValues {
             if pos < min {
                 min = pos
             }
         }
-        return min
+        return min - 4
     }
     
 }

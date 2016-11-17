@@ -80,9 +80,9 @@ class ViewControllerGraficas: UIViewController {
         let tiempoAntiguo = tiempo
         tiempo = Int(sender.value)
         
-        let posActual = arrPosiciones[tiempo]
-        let velocidad = arrVelocidades[tiempo]
-        if posActual >= -20.0 && posActual <= 20.0 {
+        if tiempo < arrPosiciones.count - 1 && arrPosiciones[tiempo] >= -20.0 && arrVelocidades[tiempo] <= 20.0 {
+            let posActual = arrPosiciones[tiempo]
+            let velocidad = arrVelocidades[tiempo]
             let posRelativa = ((CGFloat(posActual) + 20.0) / 40.0) * longitudPlataforma
             
             UIView.animate(withDuration: 1, animations: {
@@ -107,8 +107,16 @@ class ViewControllerGraficas: UIViewController {
             lbTiempo.text = "\(tiempo) s"
         }
         else {
+            var mensaje = "";
+            if velocidadInicial == 0 && aceleracion == 0 {
+                mensaje = "El objeto nunca se movera pues tiene velocidad y aceleracion igual a 0"
+            }
+            else {
+                mensaje = "Si avanzas un segundo el objeto va a chocar con la pared"
+            }
+            
             let alerta = UIAlertController(title: "Ooops",
-                                           message: "Si avanzas un segundo el objeto va a chocar con la pared",
+                                           message: mensaje,
                                            preferredStyle: .alert)
             
             alerta.addAction(UIAlertAction(title: "OK", style: .cancel,
@@ -126,13 +134,17 @@ class ViewControllerGraficas: UIViewController {
         var velocidad = velocidadInicial
         var posicion = posInicial
         var tiempo = 0
+        var max_r = 7
         repeat {
             posicion = posInicial + velocidadInicial * Double(tiempo) + 0.5 * aceleracion * (Double(tiempo) * Double(tiempo))
             velocidad = velocidadInicial + aceleracion * Double(tiempo)
             arrPosiciones.append(posicion)
             arrVelocidades.append(velocidad)
             tiempo += 1
-        } while posicion >= -20 && posicion <= 20
+            if velocidadInicial == 0 && aceleracion == 0 {
+                max_r -= 1
+            }
+        } while posicion >= -20 && posicion <= 20 && max_r > 0
         graficaPosicion.yValues = arrPosiciones
         graficaVelocidad.yValues = arrVelocidades
     }
