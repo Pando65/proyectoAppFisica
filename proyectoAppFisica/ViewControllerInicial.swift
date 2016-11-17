@@ -206,7 +206,7 @@ class ViewControllerInicial: UIViewController, UITextFieldDelegate {
         if let value = newString.doubleValue  {
             return true
         }
-        else if newString == "." || newString == "-" || newString == "-." {
+        else if newString == "." || newString == "-" || newString == "-." || newString == "" {
             return true
         }
         else {
