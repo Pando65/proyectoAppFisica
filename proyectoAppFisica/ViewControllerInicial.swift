@@ -144,6 +144,9 @@ class ViewControllerInicial: UIViewController, UITextFieldDelegate {
     @IBAction func unwindGraficas(_ sender : UIStoryboardSegue) {
     }
     
+    @IBAction func unwindCreditos(_ sender : UIStoryboardSegue) {
+    }
+    
     @IBAction func unwindConfiguracionGuardar(_ sender : UIStoryboardSegue) {
         imSeleccionada.image = imagenSeleccionada
     }
