@@ -11,21 +11,28 @@ import Charts
 
 class ViewControllerGraficaVelocidad: UIViewController {
     
+    // Objeto tipo grafica
     @IBOutlet var lineChart: LineChartView!
+    // Todos los valores de Y de la grafica
     var yValues:[Double] = []
+    // Indice del ultimo punto desplegado
     var index = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
     }
     
+    /*
+     * Incrementa el index para dibujar un punto más en la grafica
+     */
     func addPoint() {
         index += 1
         setChart()
     }
     
+    /*
+     * Decrementa el index para quitar un punto de la grafica
+     */
     func removeLastPoint() {
         if index > 0 {
             index -= 1
@@ -33,26 +40,34 @@ class ViewControllerGraficaVelocidad: UIViewController {
         }
     }
     
+    /*
+     * Funcion que se encarga de dibujar de dibujar la grafica con los
+     * puntos actuales
+     */
     func setChart() {
+        // Guardara los puntos con el tipo esperado
         var dataEntries:[ChartDataEntry] = []
         
+        // Llenamos la información
         for i in 0..<index + 1 {
             let dataEntry = ChartDataEntry(x: Double(i), y: yValues[i])
             dataEntries.append(dataEntry)
         }
         
+        // Configuracion el DataSet
         let lChartDataSet = LineChartDataSet(values: dataEntries, label: "Velocidad")
         var dataSets: [IChartDataSet] = []
-        
-        //estilo
-        // lChartDataSet.setColor(UIColor.blue) Color de la linea que une los puntos
+        // Agregamos estilo al data set
         lChartDataSet.highlightColor = UIColor.init(red: 144, green: 234, blue: 254, alpha: 0.7)
-        // lChartDataSet.lineWidth = 1.0
-        // lChartDataSet.circleRadius = 5.0
         
+        // Añadimos el data set al arreglo de datasets
         dataSets.append(lChartDataSet)
+        
+        // Creamos chart data, que será el input de la grafica
         let lChartData = LineChartData(dataSets: dataSets)
         lChartData.highlightEnabled = true
+        
+        // Colocamos la informacion
         lineChart.data = lChartData
         
         // Maximos y minimos del eje X (tiempo)
@@ -76,6 +91,7 @@ class ViewControllerGraficaVelocidad: UIViewController {
         lineChart.highlightPerTapEnabled = false
         //lineChart.highlightPerDragEnabled = false
         
+        // Destacamos el ultimo punto agregado
         let hl : Highlight = Highlight(x: Double(index), y: yValues[index], dataSetIndex: 0)
         lineChart.highlightValue(hl)
         
@@ -83,20 +99,11 @@ class ViewControllerGraficaVelocidad: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-    
     /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
+     * Obtiene el valor maximo de Y para ajustar los limites del eje
      */
-    
     func getMaxY() -> Double {
         var max : Double = -10000
         for pos in yValues {
@@ -107,6 +114,9 @@ class ViewControllerGraficaVelocidad: UIViewController {
         return max + 4
     }
     
+    /*
+     * Obtiene el valor minimo de Y para ajustar los limites del eje
+     */
     func getMinY() -> Double {
         var min : Double = 10000
         for pos in yValues {
