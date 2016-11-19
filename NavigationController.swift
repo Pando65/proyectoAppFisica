@@ -9,7 +9,7 @@
 import UIKit
 
 class NavigationController: UINavigationController {
-
+    // MARK: -- Variables
     var arrDiccionario : NSMutableArray!
     
     override func viewDidLoad() {
@@ -17,6 +17,8 @@ class NavigationController: UINavigationController {
 
         // Do any additional setup after loading the view.
         let siguienteVista = topViewController as! TableViewControllerDatos
+        
+        // Se pasa el diccionario recibido de controlador inicial hacia el de celdas
         siguienteVista.arrDiccionarios = arrDiccionario
     }
 
@@ -24,16 +26,5 @@ class NavigationController: UINavigationController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
