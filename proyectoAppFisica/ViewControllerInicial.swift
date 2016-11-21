@@ -33,7 +33,6 @@ class ViewControllerInicial: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         let app = UIApplication.shared
         
         // Se indica la funcion a ejecutar antes de cerrar la aplicacion

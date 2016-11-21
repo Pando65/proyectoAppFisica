@@ -1,10 +1,6 @@
-//
-//  TableViewControllerDatos.swift
-//  proyectoAppFisica
-//
-//  Created by Carolina Romo on 11/2/16.
-//  Copyright © 2016 ITESM. All rights reserved.
-//
+//A00815248 - Omar Manjarrez
+//A01195995 - David Delgadillo
+//A01036134 - Carolina Romo
 
 import UIKit
 
@@ -21,11 +17,9 @@ class TableViewControllerDatos: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // Las celdas se contienen dentro de sola una seccion
         return 1

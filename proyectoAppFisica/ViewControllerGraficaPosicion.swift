@@ -1,10 +1,6 @@
-//
-//  ViewControllerGraficaPosicion.swift
-//  proyectoAppFisica
-//
-//  Created by Omar Manjarrez on 22/10/16.
-//  Copyright © 2016 ITESM. All rights reserved.
-//
+//A00815248 - Omar Manjarrez
+//A01195995 - David Delgadillo
+//A01036134 - Carolina Romo
 
 import UIKit
 import Charts
