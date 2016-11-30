@@ -1,10 +1,6 @@
-//
-//  ViewControllerGraficaVelocidad.swift
-//  proyectoAppFisica
-//
-//  Created by Omar Manjarrez on 10/11/16.
-//  Copyright © 2016 ITESM. All rights reserved.
-//
+//A00815248 - Omar Manjarrez
+//A01195995 - David Delgadillo
+//A01036134 - Carolina Romo
 
 import UIKit
 import Charts
